@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    <div class="container">
+        {% for message in messages %}
+        <div class="alert alert-success" role="alert">
+            {{message}}
+        </div>
+        {% endfor %}
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email"> <br>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password"><br>
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username"><br>
+        <input type="submit" value="Salvar" class="btn btn-primary">
+    </div>
+</form>
+{% endblock %}

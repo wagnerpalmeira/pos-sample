@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <a href="{% url 'create_promotion' %}" class="btn btn-success w-100 mt-5">Criar Promocao</a>
+    <div class="row">
+        {% for promotion in promotions %}
+        <div class="card mt-3">
+            <div class="card-body">
+                <h5 class="card-title">{{promotion.title}}</h5>
+                <p class="card-text">{{promotion.description}}</p>
+                <div class="d-flex justify-content-between">
+                    <a href="{{ promotion.url }}" target="_blank" class="card-link">Ir para o site</a>
+                    <p>Criado por: {{ promotion.user }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
